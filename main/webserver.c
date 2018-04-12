@@ -12,7 +12,7 @@
 #include "libesphttpd/espfs.h"
 #include "libesphttpd/webpages-espfs.h"
 #include "libesphttpd/route.h"
-#include "my_wiss.h"
+#include "sh_z_001.h"
 
 static const char *TAG_WEBSERVER = "webserver_task";
 CgiStatus ICACHE_FLASH_ATTR cgiGreetUser(HttpdConnData *connData);
