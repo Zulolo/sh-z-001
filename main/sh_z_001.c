@@ -34,6 +34,6 @@ void app_main()
     }
     ESP_ERROR_CHECK( err );
     xTaskCreate(&wifi_ap_task, "wifi_ap", 4096, NULL, 5, NULL);
-    xTaskCreate(&webserver_task, "webserver", 4096, NULL, 5, NULL);
+    xTaskCreate(&webserver_task, "webserver", 8192, NULL, 5, NULL);
 
 }
