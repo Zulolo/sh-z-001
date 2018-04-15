@@ -5,7 +5,7 @@
  *      Author: zulolo
  */
 
-#include "esp_wifi.h"
+
 #include "esp_event_loop.h"
 
 #include "nvs_flash.h"
@@ -95,6 +95,16 @@ static void start_wifi_ap(void)
     xEventGroupSetBits(wifi_event_group, WIFI_EVENT_GROUP_CONNECTED_BIT);
 }
 
+int get_light_para_nvs_key_by_index(char *key_name, const char *key_name_prefix, uint8_t light_index)
+{
+	return snprintf(key_name, 15, "%s_%u", key_name_prefix, light_index);
+}
+
+static void save_para_to_nvs(void)
+{
+
+}
+
 void wifi_ap_task(void *pvParameters)
 {
     tcpip_adapter_init();
@@ -113,6 +123,11 @@ void wifi_ap_task(void *pvParameters)
 
     	xEventGroupWaitBits(wifi_event_group, WIFI_EVENT_GROUP_AP_DISABLED_BIT, false, true, portMAX_DELAY);
     	// stop wifi ap
+    	esp_wifi_stop();
+    	// save all parameter into nvs
+    	save_para_to_nvs();
+
+    	// ask others to refresh the parameter they are using
     }
 
 }

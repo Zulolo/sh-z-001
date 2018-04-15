@@ -1,1 +1,0 @@
-var module = "SH-0001";

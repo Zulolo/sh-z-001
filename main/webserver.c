@@ -15,11 +15,30 @@
 #include "sh_z_001.h"
 
 static const char *TAG_WEBSERVER = "webserver_task";
-CgiStatus ICACHE_FLASH_ATTR cgiGreetUser(HttpdConnData *connData);
+
+static CgiStatus ICACHE_FLASH_ATTR global_config(HttpdConnData *connData) {
+	if (connData->requestType!=HTTPD_METHOD_GET) {
+		//Sorry, we only accept GET requests.
+		httpdStartResponse(connData, 406);  //http error code 'unacceptable'
+		httpdEndHeaders(connData);
+		return HTTPD_CGI_DONE;
+	} else if (connData->requestType!=HTTPD_METHOD_POST) {
+
+		return HTTPD_CGI_DONE;
+	} else {
+		//Sorry, we only accept GET & POST requests.
+		httpdStartResponse(connData, 406);  //http error code 'unacceptable'
+		httpdEndHeaders(connData);
+		return HTTPD_CGI_DONE;
+	}
+}
 
 const HttpdBuiltInUrl builtInUrls[]={
-	ROUTE_FILESYSTEM(),
-	ROUTE_END()
+		ROUTE_CGI_ARG("*", cgiRedirectApClientToHostname, "esp32.nonet"),
+		ROUTE_REDIRECT("/", "/index.html"),
+		ROUTE_CGI("get_config", global_config),
+		ROUTE_FILESYSTEM(),
+		ROUTE_END()
 };
 
 CgiStatus ICACHE_FLASH_ATTR cgiGreetUser(HttpdConnData *connData) {

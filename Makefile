@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := my_wiss
+PROJECT_NAME := sh-z-001
 
 include $(IDF_PATH)/make/project.mk
 
