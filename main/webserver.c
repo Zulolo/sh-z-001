@@ -94,7 +94,7 @@ void webserver_task(void *pvParameters)
 	xEventGroupWaitBits(wifi_event_group, WIFI_EVENT_GROUP_CONNECTED_BIT, false, true, portMAX_DELAY);
 	ESP_LOGI(TAG_WEBSERVER, "Webserver init.");
 	httpdInit(builtInUrls, 80, HTTPD_FLAG_NONE);
-//	captdnsInit();
+	captdnsInit();
 	while (1) {
 		vTaskDelay(5000 / portTICK_PERIOD_MS);
 	}
