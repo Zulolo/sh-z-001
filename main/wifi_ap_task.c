@@ -110,8 +110,8 @@ static void start_wifi_ap(void)
     if (ESP_OK != get_ssid_from_nvs((char *)(wifi_config.ap.ssid), sizeof(wifi_config.ap.ssid),
     		(char *)(wifi_config.ap.password), sizeof(wifi_config.ap.password), &wifi_config.ap.ssid_hidden)) {
     	set_ssid_to_nvs(DEFAULT_SSID, DEFAULT_PASSWORD, DEFAULT_SSID_HIDDEN);
-        strcpy(wifi_config.ap.ssid, DEFAULT_SSID);
-        strcpy(wifi_config.ap.password, DEFAULT_PASSWORD);
+        strcpy((char *)(wifi_config.ap.ssid), DEFAULT_SSID);
+        strcpy((char *)(wifi_config.ap.password), DEFAULT_PASSWORD);
         wifi_config.ap.ssid_hidden = 0;
     }
     wifi_config.ap.authmode = WIFI_AUTH_WPA2_PSK;
