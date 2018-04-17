@@ -15,7 +15,7 @@
 #include "captdns.h"
 #include "sh_z_001.h"
 
-static const char *TAG_WEBSERVER = "webserver_task";
+static const char *TAG_WEBSERVER = "[WEBSERVER]";
 
 static CgiStatus ICACHE_FLASH_ATTR global_config(HttpdConnData *connData) {
 	if (connData->requestType!=HTTPD_METHOD_GET) {

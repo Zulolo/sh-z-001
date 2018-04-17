@@ -12,7 +12,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
-#include "sys/time.h"
+#include "time.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
 #include "esp_log.h"
@@ -46,8 +46,8 @@ typedef struct {
 typedef struct {
 	wifi_config_t wifi_config;
 	global_position_t global_position;
-	struct timeval on_off_pos_cal_time[MAX_STREET_LIGHT_NUM];
-	struct timeval on_off_set_time[MAX_STREET_LIGHT_NUM][DAYS_PER_WEEK];
+	struct tm on_off_pos_cal_time[MAX_STREET_LIGHT_NUM];
+	struct tm on_off_set_time[MAX_STREET_LIGHT_NUM][DAYS_PER_WEEK];
 	uint16_t on_off_bright[MAX_STREET_LIGHT_NUM];
 	uint32_t on_off_enable_bits[MAX_STREET_LIGHT_NUM];
 	char street_light_name[STREET_LIGHT_NAME_LEN][MAX_STREET_LIGHT_NUM];

@@ -18,7 +18,7 @@
 /* FreeRTOS event group to signal when we are connected & ready to make a request */
 EventGroupHandle_t wifi_event_group;
 
-static const char *TAG_WIFI = "wifi";
+static const char *TAG_WIFI = "[WIFI]";
 static const char *WIFI_AP_NVS_NS = "sh_wifi_ap";
 static const char *WIFI_AP_SSID_NVS_NS = "ap_ssid";
 static const char *WIFI_AP_PSWD_NVS_NS = "ap_pswd";

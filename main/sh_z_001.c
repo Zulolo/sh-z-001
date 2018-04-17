@@ -22,6 +22,7 @@
 
 extern void wifi_ap_task(void *pvParameters);
 extern void webserver_task(void *pvParameters);
+extern void gprs_task(void *pvParameters);
 
 void app_main()
 {
@@ -35,5 +36,6 @@ void app_main()
     ESP_ERROR_CHECK( err );
     xTaskCreate(&wifi_ap_task, "wifi_ap", 4096, NULL, 5, NULL);
     xTaskCreate(&webserver_task, "webserver", 8192, NULL, 5, NULL);
+    xTaskCreate(&gprs_task, "gprs", 8192, NULL, 5, NULL);
 
 }
