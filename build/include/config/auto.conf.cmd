@@ -2,7 +2,9 @@ deps_config := \
 	/home/zulolo/esp-idf/components/app_trace/Kconfig \
 	/home/zulolo/esp-idf/components/aws_iot/Kconfig \
 	/home/zulolo/esp-idf/components/bt/Kconfig \
+	/home/zulolo/esp-idf/components/driver/Kconfig \
 	/home/zulolo/esp-idf/components/esp32/Kconfig \
+	/home/zulolo/esp-idf/components/esp_adc_cal/Kconfig \
 	/home/zulolo/esp-idf/components/ethernet/Kconfig \
 	/home/zulolo/esp-idf/components/fatfs/Kconfig \
 	/home/zulolo/esp-idf/components/freertos/Kconfig \
