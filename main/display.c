@@ -74,7 +74,7 @@ void display_putstr(spi_device_handle_t spi, const char *str) {
     while(*s > 0) {
     	send_data(spi, *s);
         s++;
-        vTaskDelay(50 / portTICK_RATE_MS);
+        vTaskDelay(20 / portTICK_RATE_MS);
     }
 }
 
