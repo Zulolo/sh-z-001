@@ -20,10 +20,10 @@
 */
 
 
-extern void wifi_ap_task(void *pvParameters);
-extern void webserver_task(void *pvParameters);
-//extern void gprs_task(void *pvParameters);
-//extern void display_task(void *pvParameters);
+//extern void wifi_ap_task(void *pvParameters);
+//extern void webserver_task(void *pvParameters);
+extern void gprs_task(void *pvParameters);
+extern void display_task(void *pvParameters);
 extern void rtc_task(void *pvParameters);
 
 void app_main()
@@ -36,10 +36,10 @@ void app_main()
         err = nvs_flash_init();
     }
     ESP_ERROR_CHECK( err );
-    xTaskCreate(wifi_ap_task, "wifi_ap", 4096, NULL, 8, NULL);
-    xTaskCreate(webserver_task, "webserver", 8192, NULL, 9, NULL);
-//    xTaskCreate(&display_task, "display", 4096, NULL, 5, NULL);
-    xTaskCreate(rtc_task, "rtc", 2048, NULL, 10, NULL);
-//    xTaskCreate(&gprs_task, "gprs", 8192, NULL, 5, NULL);
+//    xTaskCreate(wifi_ap_task, "wifi_ap", 4096, NULL, 4, NULL);
+//    xTaskCreate(webserver_task, "webserver", 8192, NULL, 5, NULL);
+    xTaskCreate(&display_task, "display", 4096, NULL, 5, NULL);
+    xTaskCreate(rtc_task, "rtc", 2048, NULL, 3, NULL);
+    xTaskCreate(&gprs_task, "gprs", 8192, NULL, 5, NULL);
 
 }
